@@ -8,6 +8,7 @@ import static eon.EON_Client.generate;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -45,6 +46,12 @@ public class login extends javax.swing.JFrame {
         jLabel1.setText("User Name :  ");
 
         jLabel2.setText("Password : ");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Project-EON..");
 
@@ -134,7 +141,17 @@ public class login extends javax.swing.JFrame {
                 this.setVisible(false);
                 //new lec_rec().setVisible(true);
             }
-        } catch (RemoteException ex) {
+            else if(uname.equals("") && pwd.equals("")){
+                JOptionPane.showMessageDialog(null,"Enter Login details!");
+            }
+    else if(uname.equals("")){
+                JOptionPane.showMessageDialog(null,"Enter Username!");
+            }
+    else if(pwd.equals("")){
+                JOptionPane.showMessageDialog(null,"Enter Password!");
+            }
+        }
+        catch (RemoteException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -142,6 +159,10 @@ public class login extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
